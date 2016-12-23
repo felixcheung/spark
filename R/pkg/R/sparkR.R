@@ -434,6 +434,27 @@ sparkR.uiWebUrl <- function() {
   }
 }
 
+#' Open the SparkUI web page for the current active SparkSession
+#'
+#' Open the SparkUI web page for the current active SparkSession, in the default browser.
+#'
+#' @rdname sparkR.uiWeb
+#' @name sparkR.uiWeb
+#' @export
+#' @examples
+#'\dontrun{
+#' sparkR.session()
+#' url <- sparkR.uiWeb()
+#' }
+#' @note sparkR.uiWeb since 2.2.0
+sparkR.uiWeb <- function() {
+  url <- sparkR.uiWebUrl()
+  if (!is.na(url)) {
+    browseURL(url)
+  }
+  invisible(NULL)
+}
+
 #' Assigns a group ID to all the jobs started by this thread until the group ID is set to a
 #' different value or cleared.
 #'
